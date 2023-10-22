@@ -23,7 +23,7 @@ const Login = () => {
   }
 
   return (
-    <section className="m-auto max-w-5xl mt-5">
+    <section className="m-auto max-w-5xl mt-5 p-8">
       <fieldset>
         {error && (
           <div className="bg-red-500 text-white p-3 m-2 rounded-lg shadow-lg text-lg">Wrong username or password</div>

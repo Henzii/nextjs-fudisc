@@ -9,7 +9,7 @@ const Layout: FC<Props> = ({ children }) => {
 
     return (
         <WithToken>
-            <section className="py-8 max-w-5xl m-auto">
+            <section className="p-8 max-w-5xl m-auto">
                 {children}
             </section>
         </WithToken>

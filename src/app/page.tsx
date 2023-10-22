@@ -20,7 +20,7 @@ export default function Home() {
         of features at absolutely no cost, empowering you to take your disc golf game
         to new heights.
       </ArticleBlock>
-      <ArticleBlock header="Real-Time Multi-User Scorekeeping">
+      <ArticleBlock header="Real-Time Multi-User Scorekeeping" image="/screenshot_frame_scorecard.png">
         Elevate the disc golf experience with FuDisc&apos;s real-time multi-user
         scorekeeping functionality. Engage in collaborative play by inviting
         friends, fellow disc golfers, or competitors to join and keep score
@@ -29,10 +29,10 @@ export default function Home() {
         redefines disc golf as a social sport, bringing players together
         for unforgettable rounds.
       </ArticleBlock>
-      <ArticleBlock header="Thousands of users*" variant="black" className="text-center" smallText="*) Estimated user count, real user count may vary">
+      <ArticleBlock header="Over 1000+ users" variant="black" className="text-center" smallText="*) Estimated user count, real user count may vary">
         With thousands of users, FuDisc is fastly becoming the most used app for Disc Golf score keeping
       </ArticleBlock>
-      <ArticleBlock header="Unleash Your Potential with Handicap Score Calculations">
+      <ArticleBlock header="Unleash Your Potential with Handicap Score Calculations" image="/screenshot_frame_summary.png" imageRight>
         With FuDisc, you can unleash your true disc golf potential using our cutting-edge
         handicap score calculation feature. By factoring player skill
         levels and historical performance, FuDisc ensures fair and competitive matches for
@@ -46,15 +46,22 @@ export default function Home() {
         home, or on the move. Focus on perfecting your game while FuDisc takes care of
         preserving and organizing your valuable disc golf statistics.
       </ArticleBlock>
-      <ArticleBlock header="Raise a Toast with the Beer Handicap Feature">
+      <ArticleBlock header="Raise a Toast with the Beer Handicap Feature" image="/screenshot_frame_beer.png">
         FuDisc goes beyond scores, infusing your disc golf sessions with an extra
         dose of fun. Keep track of the number of beers enjoyed during each game and
         calculate the beer handicap for every player. Embrace the spirit of
         camaraderie, laughter, and friendly competition as you celebrate your disc
         golf achievements both on and off the course.
       </ArticleBlock>
-      <ArticleBlock header="90% would recommend" variant="black" className="text-center">
-        90% of users would recommend FuDisc to a friend
+      <ArticleBlock header="4,5/5 stars on Google Play*" variant="black" className="text-center" smallText="*) With 2 reviews">
+        FuDisc is fully appraised with 4,5/5 stars in google play
+      </ArticleBlock>
+      <ArticleBlock header="Elevating Disc Golf with Competitive Group Play">
+        FuDisc, the innovative disc golf app, stands out with its unique group creation and competition
+        feature. Users can effortlessly set up custom groups for friendly matches, making every round of
+        disc golf an engaging competition. Whether it&apos;s a small gathering or a full-blown tournament, FuDisc
+        offers versatile scoring options and takes handicap scores into account. It allows disc golfers to track
+        scores, compare performance, and foster camaraderie within the community, enhancing the disc golf experience.
       </ArticleBlock>
 
       <ArticleBlock header="Are you ready?">
