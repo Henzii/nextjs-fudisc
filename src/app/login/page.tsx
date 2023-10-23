@@ -16,7 +16,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       await axios.post('/api/login', { user, password })
-      router.replace('/dashboard')
+      window.location.href = "/dashboard"
     } catch {
       setError(true)
     }
