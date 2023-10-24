@@ -1,4 +1,4 @@
-import { getUserInfo } from "@/services/getUserInfo"
+import { getUserInfo } from "@/services/user"
 
 const Settings = async () => {
     const me = await getUserInfo()
