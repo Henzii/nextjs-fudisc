@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,9 +8,14 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  font-family: 'Roboto';
 }
 
 .outlinedText {
-  -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: rgba(0, 0, 0, 1);
+  color: white;
+  text-shadow:
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000;
 }

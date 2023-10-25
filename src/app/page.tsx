@@ -1,10 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import ArticleBlock from "@/components/ArticleBlock";
-import clsx from "clsx";
-
-const Spacer = ({ className }: { className?: string }) => {
-  return <div className={clsx(`h-[25vh] bg-[url('/backgroundImage.jpg')] lg:h-0 opacity-60 -mb-80 lg:mb-0`, className)} />
-}
 
 export default function Home() {
   return (
@@ -21,7 +16,6 @@ export default function Home() {
         of features at absolutely no cost, empowering you to take your disc golf game
         to new heights.
       </ArticleBlock>
-      <Spacer className="bg-fixed bg-cover" />
       <ArticleBlock header="Real-Time Multi-User Scorekeeping" image="/screenshot_frame_scorecard.png">
         Elevate the disc golf experience with FuDisc&apos;s real-time multi-user
         scorekeeping functionality. Engage in collaborative play by inviting
@@ -41,6 +35,9 @@ export default function Home() {
         all players. Whether you&apos;re a seasoned pro or a beginner, FuDisc&apos;s
         handicap scoring guarantees exciting and balanced gameplay for everyone.
       </ArticleBlock>
+      <ArticleBlock header="4,33 rating on Google Play*" variant="black" className="text-center" smallText="*) With a total of 3 reviews">
+        FuDisc users have given an average rating of 4.33 stars on Google Play
+      </ArticleBlock>
       <ArticleBlock header="Seamless cloud storage">
         Enjoy the convenience of seamless data access with FuDisc&apos;s cloud storage
         capability. Your scorekeeping data is securely stored in the cloud, allowing
@@ -48,16 +45,12 @@ export default function Home() {
         home, or on the move. Focus on perfecting your game while FuDisc takes care of
         preserving and organizing your valuable disc golf statistics.
       </ArticleBlock>
-      <Spacer className="bg-cover" />
       <ArticleBlock header="Raise a Toast with the Beer Handicap Feature" image="/screenshot_frame_beer.png">
         FuDisc goes beyond scores, infusing your disc golf sessions with an extra
         dose of fun. Keep track of the number of beers enjoyed during each game and
         calculate the beer handicap for every player. Embrace the spirit of
         camaraderie, laughter, and friendly competition as you celebrate your disc
         golf achievements both on and off the course.
-      </ArticleBlock>
-      <ArticleBlock header="4,33 rating on Google Play*" variant="black" className="text-center" smallText="*) With a total of 3 reviews">
-        FuDisc users have given an average rating of 4.33 stars on Google Play
       </ArticleBlock>
       <ArticleBlock header="Elevating Disc Golf with Competitive Group Play" image="/competition_list.png" isPhoneImage={false}>
         FuDisc, the innovative disc golf app, stands out with its unique group creation and competition

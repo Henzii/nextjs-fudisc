@@ -9,7 +9,10 @@ const Navbar = () => {
             <nav className="flex gap-5">
                 <Link href="/">Frontpage</Link>
                 <RequiresAuth withNoAuth={<Link href="/login">Login</Link>}>
-                    <LogoutButton />
+                    <>
+                        <Link href="/dashboard">Dashboard</Link>
+                        <LogoutButton />
+                    </>
                 </RequiresAuth>
             </nav>
         </header>
