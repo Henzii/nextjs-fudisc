@@ -3,3 +3,8 @@ export type User = {
     email?: string
     groupName?: string
 }
+
+export type SafeUser = {
+    name: string,
+    id: String,
+}

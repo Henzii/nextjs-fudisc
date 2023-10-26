@@ -3,12 +3,7 @@ import axios from "axios"
 import { cookies } from "next/headers"
 import config from '@/config.json'
 import { User } from "@/types/user"
-
-type QueryReponse<QueryName extends string, T> = {
-    data: {
-        [key in QueryName]: T
-    }
-}
+import { QueryReponse } from "@/types/query"
 
 export const getUserInfo = async () => {
     const cookieStore = cookies()
