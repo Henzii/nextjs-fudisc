@@ -14,6 +14,6 @@ export type Game = {
     date: string
     id: string
     layout: string
-    startTime: string
+    startTime: number
     scorecards: Scorecard[]
 }
