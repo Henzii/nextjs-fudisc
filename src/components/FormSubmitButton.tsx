@@ -1,18 +1,17 @@
 'use client'
 
-import { FC, ReactNode } from "react"
+import { ButtonHTMLAttributes, FC, ReactNode } from "react"
 import Button from "./Button"
-// @ts-expect-error
-import { experimental_useFormStatus as useFormStatus } from 'react-dom'
+import { useFormStatus } from 'react-dom'
 import Spinner from "@/components/Spinner";
 
-type Props = {
+type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
     children: ReactNode
 }
 
-const FormSubmitButton: FC<Props> = ({ children }) => {
+const FormSubmitButton: FC<Props> = ({ children, ...rest }) => {
     const { pending } = useFormStatus()
-    return <Button type="submit">{pending ? <Spinner /> : children}</Button>
+    return <Button type="submit" {...rest}>{pending ? <Spinner /> : children}</Button>
 }
 
 export default FormSubmitButton

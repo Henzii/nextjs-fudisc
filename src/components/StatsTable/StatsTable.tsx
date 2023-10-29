@@ -2,7 +2,7 @@
 
 import { Game } from "@/types/game"
 import { FC, useMemo, useState } from "react"
-import { MappedGames, MappedPlayer, getResultForPlayer, getUniquePlayerNames, parseGames } from "./utils"
+import { MappedPlayer, getResultForPlayer, getUniquePlayerNames, parseGames } from "./utils"
 import { format, fromUnixTime } from 'date-fns'
 import Switch from "../Switch"
 import PointsTable from "./PointsTable"
@@ -53,7 +53,7 @@ const StatsTable: FC<Props> = ({ gameData }) => {
           </thead>
           <tbody className="[&>tr:nth-child(odd)]:bg-slate-100 text-gray-600">
             {parsedGames.competitions.map(game => {
-              const date = fromUnixTime(game.startTime)
+              const date = fromUnixTime(game.startTime / 1000)
               return (
                 <tr key={game.id} className="[&>td]:p-1">
                   <td className="whitespace-nowrap">{format(date, 'dd.MM.yy HH:mm')}</td>

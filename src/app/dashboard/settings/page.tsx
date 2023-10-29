@@ -19,7 +19,8 @@ const Settings = async () => {
                 <div className="basis-1/4">Group:</div>
                 <div><Input defaultValue={me.groupName} /></div>
             </div>
-            <FormSubmitButton>Save</FormSubmitButton>
+            <FormSubmitButton disabled>Save</FormSubmitButton>
+            <div className="text-sm">Not in use</div>
         </div>
     )
 }
