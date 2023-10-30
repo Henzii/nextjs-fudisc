@@ -17,3 +17,15 @@ export type Game = {
     startTime: number
     scorecards: Scorecard[]
 }
+
+export type LiveGame = {
+    id: string,
+    course: string,
+    layout: string,
+    scorecards: {
+        user: {
+            name: string
+        }
+    }
+    startTime: number
+}

@@ -6,10 +6,11 @@ const Settings = async () => {
     const me = await getUserInfo()
 
     return (
-        <div className="lg:text-2xl text-xl">
+        <div>
+            <h1 className="text-3xl font-bold mb-6">Set things</h1>
             <div className="flex flex-row items-center">
                 <div className="basis-1/4">Name:</div>
-                <div className="font-bold">{me.name}</div>
+                <Input defaultValue={me.name} type="text" />
             </div>
             <div className="flex flex-row items-center mt-1">
                 <div className="basis-1/4">Email:</div>

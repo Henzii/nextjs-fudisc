@@ -24,7 +24,7 @@ const Card: FC<Props> = ({ header, href, image, children }) => {
                     <p>{children}</p>
                 </div>
                 <div className="mt-auto w-full py-4">
-                    <Button className="mx-auto block">Check out</Button>
+                    <Button className="mx-auto block">Select</Button>
                 </div>
             </article>
         </Link>
