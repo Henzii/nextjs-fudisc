@@ -38,19 +38,19 @@ export default function Home() {
       <ArticleBlock header="4,33 rating on Google Play*" variant="black" className="text-center" smallText="*) With a total of 3 reviews">
         FuDisc users have given an average rating of 4.33 stars on Google Play
       </ArticleBlock>
-      <ArticleBlock header="Seamless cloud storage">
-        Enjoy the convenience of seamless data access with FuDisc&apos;s cloud storage
-        capability. Your scorekeeping data is securely stored in the cloud, allowing
-        you to effortlessly access it from any device, whether you&apos;re on the course, at
-        home, or on the move. Focus on perfecting your game while FuDisc takes care of
-        preserving and organizing your valuable disc golf statistics.
-      </ArticleBlock>
       <ArticleBlock header="Raise a Toast with the Beer Handicap Feature" image="/screenshot_frame_beer.png">
         FuDisc goes beyond scores, infusing your disc golf sessions with an extra
         dose of fun. Keep track of the number of beers enjoyed during each game and
         calculate the beer handicap for every player. Embrace the spirit of
         camaraderie, laughter, and friendly competition as you celebrate your disc
         golf achievements both on and off the course.
+      </ArticleBlock>
+      <ArticleBlock header="Seamless cloud storage">
+        Enjoy the convenience of seamless data access with FuDisc&apos;s cloud storage
+        capability. Your scorekeeping data is securely stored in the cloud, allowing
+        you to effortlessly access it from any device, whether you&apos;re on the course, at
+        home, or on the move. Focus on perfecting your game while FuDisc takes care of
+        preserving and organizing your valuable disc golf statistics.
       </ArticleBlock>
       <ArticleBlock header="Elevating Disc Golf with Competitive Group Play" image="/competition_list.png" isPhoneImage={false}>
         FuDisc, the innovative disc golf app, stands out with its unique group creation and competition
