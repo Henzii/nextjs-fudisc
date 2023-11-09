@@ -6,5 +6,5 @@ export type User = {
 
 export type SafeUser = {
     name: string,
-    id: String,
+    id: string,
 }

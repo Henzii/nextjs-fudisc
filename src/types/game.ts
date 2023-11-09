@@ -7,6 +7,8 @@ export type Scorecard = {
     beers: number
     bHc: number
     user: SafeUser
+    scores: number[]
+    hcPlusminus: number
 }
 
 export type Game = {
@@ -15,17 +17,7 @@ export type Game = {
     id: string
     layout: string
     startTime: number
+    pars: number[]
+    par: number
     scorecards: Scorecard[]
-}
-
-export type LiveGame = {
-    id: string,
-    course: string,
-    layout: string,
-    scorecards: {
-        user: {
-            name: string
-        }
-    }
-    startTime: number
 }
