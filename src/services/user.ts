@@ -4,6 +4,7 @@ import { cookies } from "next/headers"
 import { User } from "@/types/user"
 import { QueryReponse } from "@/types/query"
 import config from "@/config/config"
+import { postWithToken } from "./util"
 
 export const getUserInfo = async () => {
     const cookieStore = cookies()
@@ -43,6 +44,20 @@ export const getUserToken = async (user: string, password: string) => {
         })
 
         return fuDiscResponse.data?.data?.login
+    } catch {
+        return null
+    }
+}
+
+export const changeUsername = async (newUsername: string) => {
+    try {
+        const fuDiscResponse = await postWithToken<'changeUsername', Pick<User, 'name'>>(`
+        mutation ChangeUsername($newUsername: String!) {
+            changeUsername(newUsername: $newUsername) {
+                name
+            }
+        }`, { newUsername })
+        return fuDiscResponse?.data.changeUsername
     } catch {
         return null
     }
