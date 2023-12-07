@@ -1,0 +1,13 @@
+FuDisc Privacy Policy
+
+The FuDisc app collects the following information from its users
+
+name,
+email (optional)
+device token
+
+Data is collected to authenticate and/or to identify the user and their device
+
+The information is stored for the time being and will not be shared with third parties. The data transmission between the server and the application is encrypted and sealed with magic.
+
+To delete all data use the 'delete account' option in the application or contact rageputt@gmail.com
