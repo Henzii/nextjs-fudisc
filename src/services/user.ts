@@ -1,7 +1,7 @@
 import { COOKIES } from "@/types/enums"
 import axios from "axios"
 import { cookies } from "next/headers"
-import { User } from "@/types/user"
+import { SearchUserResponse, User } from "@/types/user"
 import { QueryReponse } from "@/types/query"
 import config from "@/config/config"
 import { postWithToken } from "./util"
@@ -18,6 +18,7 @@ export const getUserInfo = async () => {
                 groupName
                 name
                 email
+                accountType
                 }
             }`,
     }, {
@@ -59,6 +60,26 @@ export const changeUsername = async (newUsername: string) => {
         }`, { newUsername })
         return fuDiscResponse?.data.changeUsername
     } catch {
+        return null
+    }
+}
+
+export const searchUser = async (search: string) => {
+    console.log(search)
+    try {
+        const response = await postWithToken<'searchUser', SearchUserResponse>(`
+        query SearchUser($search: String!) {
+            searchUser(search: $search) {
+                users {
+                    name
+                    id
+                }
+                hasMore
+            }
+        }
+        `, { search })
+        return response?.data.searchUser
+    } catch (e) {
         return null
     }
 }

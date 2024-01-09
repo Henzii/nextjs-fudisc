@@ -1,11 +1,16 @@
 import Card from "@/components/Card"
-import Switch from "@/components/Switch"
+import { getUserInfo } from "@/services/user"
+import { AccountType } from "@/types/user";
 
-const Dashboard = () => {
+const Dashboard = async () => {
+
+    const user = await getUserInfo();
+    const isAdmin = user.accountType === AccountType.ADMIN || AccountType.GOD
+
     return (
         <section>
             <h2 className="text-3xl m-4">Dashboard</h2>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-1 md:gap-2 lg:gap-4">
                 <Card header="Results" href="/dashboard/stats" image="/competition.png">
                     View group&apos;s competitions results.
                 </Card>
@@ -16,6 +21,11 @@ const Dashboard = () => {
                 <Card header="Settings" href="/dashboard/settings" image="/settings.png">
                     Set settings, hammer nails and other stuff
                 </Card>
+                {isAdmin && (
+                    <Card header="Admin stuff" href="/dashboard/admin" image="/admin.png">
+                        Admin stuff here
+                    </Card>
+                )}
             </div>
         </section>
     )

@@ -13,7 +13,7 @@ type Props = {
 const Card: FC<Props> = ({ header, href, image, children }) => {
     return (
         <Link href={href}>
-            <article className="border-2 rounded-xl w-[11rem] min-h-full pt-2 hover:shadow-lg transition duration-300 flex flex-col">
+            <article className="border-2 rounded-xl w-[10rem] lg:w-[12rem] min-h-full pt-2 hover:shadow-lg transition duration-300 flex flex-col">
                 {image && (
                     <div className="h-[3rem] w-full">
                         <Image src={image} width={50} height={50} alt="Pic" className="m-auto" />
