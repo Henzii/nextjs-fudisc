@@ -20,3 +20,5 @@ export type SearchUserResponse = {
     hasMore: boolean
     users: SafeUser[]
 }
+
+export type TokenPayload = Pick<User, 'id' | 'name' | 'accountType'>

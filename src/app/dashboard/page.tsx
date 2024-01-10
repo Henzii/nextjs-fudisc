@@ -1,12 +1,12 @@
+import { isAdmin } from "@/common/utils";
 import Card from "@/components/Card"
 import { getUserInfo } from "@/services/user"
 import { AccountType } from "@/types/user";
 
 const Dashboard = async () => {
 
-    const user = await getUserInfo();
-    const isAdmin = user.accountType === AccountType.ADMIN || AccountType.GOD
-
+    const admin = isAdmin()
+    console.log(admin)
     return (
         <section>
             <h2 className="text-3xl m-4">Dashboard</h2>
@@ -21,7 +21,7 @@ const Dashboard = async () => {
                 <Card header="Settings" href="/dashboard/settings" image="/settings.png">
                     Set settings, hammer nails and other stuff
                 </Card>
-                {isAdmin && (
+                {admin && (
                     <Card header="Admin stuff" href="/dashboard/admin" image="/admin.png">
                         Admin stuff here
                     </Card>

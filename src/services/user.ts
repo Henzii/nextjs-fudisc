@@ -6,9 +6,9 @@ import { QueryReponse } from "@/types/query"
 import config from "@/config/config"
 import { postWithToken } from "./util"
 
-export const getUserInfo = async () => {
+export const getUserInfo = async (overrideToken?: string) => {
     const cookieStore = cookies()
-    const token = cookieStore.get(COOKIES.ServerToken)?.value
+    const token = overrideToken ?? cookieStore.get(COOKIES.ServerToken)?.value
 
     if (!token) throw new Error('Whoopsie, something went wrong')
     const response = await axios.post<QueryReponse<'getMe', User>>(config('fuDiscServerUri'), {
