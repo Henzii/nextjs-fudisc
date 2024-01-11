@@ -65,7 +65,6 @@ export const changeUsername = async (newUsername: string) => {
 }
 
 export const searchUser = async (search: string) => {
-    console.log(search)
     try {
         const response = await postWithToken<'searchUser', SearchUserResponse>(`
         query SearchUser($search: String!) {
@@ -80,6 +79,24 @@ export const searchUser = async (search: string) => {
         `, { search })
         return response?.data.searchUser
     } catch (e) {
+        return null
+    }
+}
+
+export const getUser = async (userId: string) => {
+    try {
+        const response = await postWithToken<'getUser', User | null>(`
+        query GetUser($userId: ID!) {
+            getUser(userId: $userId) {
+                name
+                id
+                groupName
+                email
+            }
+        }
+        `, { userId })
+        return response?.data.getUser ?? null
+    } catch {
         return null
     }
 }

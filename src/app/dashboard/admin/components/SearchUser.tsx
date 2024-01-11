@@ -15,7 +15,6 @@ type Props = {
 
 const SearchUser: FC<Props> = ({ action }) => {
     const [state, formAction] = useFormState(action, null)
-    console.log(state)
     return (
         <>
             <form action={formAction}>
