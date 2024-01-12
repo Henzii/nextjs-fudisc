@@ -46,7 +46,6 @@ export const getGroupStats = async (filterYear: number, minPlayerCount: number) 
   if (response.data.errors?.length) {
     response.data.errors.forEach(error => console.log('-=!! Error !!=- -> ', error.message))
   }
-  console.log('Fetch')
-  return response.data.data?.getGroupGames
 
+  return response.data.data?.getGroupGames
 }

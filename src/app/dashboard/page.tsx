@@ -6,7 +6,6 @@ import { AccountType } from "@/types/user";
 const Dashboard = async () => {
 
     const admin = isAdmin()
-    console.log(admin)
     return (
         <section>
             <h2 className="text-3xl m-4">Dashboard</h2>

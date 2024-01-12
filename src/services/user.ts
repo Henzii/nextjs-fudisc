@@ -119,7 +119,6 @@ export const updateSettings = async ({ userId, email, groupName, password }: Upd
         `, { userId, email, groupName, password })
         return response?.data.changeSettings
     } catch (e) {
-        console.log(JSON.stringify(e))
         return null
     }
 }

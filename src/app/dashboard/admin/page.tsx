@@ -1,5 +1,7 @@
+import { isAdmin } from "@/common/utils";
 import { handleSearchUser } from "./actions";
 import SearchUser from "./SearchUser";
+import { redirect } from "next/navigation";
 
 const Page = () => {
     return (
