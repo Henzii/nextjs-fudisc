@@ -2,7 +2,7 @@
 
 import FormSubmitButton from "@/components/FormSubmitButton";
 import { Input } from "@/components/Input";
-import { SearchUserActionState, handleSearchUser } from "../actions";
+import { SearchUserActionState, handleSearchUser } from "./actions";
 import { useFormState } from "react-dom";
 import { FC } from "react";
 import { isActionSuccessState } from "@/types/actions";

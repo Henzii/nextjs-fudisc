@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main>
+        <main className="relative">
           {children}
         </main>
         <footer className="bg-slate-900 text-white p-10 flex items-baseline align-middle mt-auto">

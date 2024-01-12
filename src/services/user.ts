@@ -100,3 +100,26 @@ export const getUser = async (userId: string) => {
         return null
     }
 }
+
+type UpdateSettingsArgs = {
+    email?: string,
+    groupName?: string,
+    password?: string,
+    userId: string
+}
+export const updateSettings = async ({ userId, email, groupName, password }: UpdateSettingsArgs) => {
+    try {
+        const response = await postWithToken<'changeSettings', Pick<User, 'email' | 'groupName'>>(`
+        mutation ChangeSettings($email: String, $groupName: String, $password: String, $userId: ID) {
+            changeSettings(email: $email, groupName: $groupName, password: $password, userId: $userId) {
+                email
+                groupName
+            }
+        }
+        `, { userId, email, groupName, password })
+        return response?.data.changeSettings
+    } catch (e) {
+        console.log(JSON.stringify(e))
+        return null
+    }
+}

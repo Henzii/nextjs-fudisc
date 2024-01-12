@@ -1,5 +1,5 @@
 import { handleSearchUser } from "./actions";
-import SearchUser from "./components/SearchUser";
+import SearchUser from "./SearchUser";
 
 const Page = () => {
     return (
