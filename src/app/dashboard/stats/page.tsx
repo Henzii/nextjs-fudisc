@@ -12,7 +12,8 @@ type Props = {
 
 const Stats: FC<Props> = async ({ searchParams }) => {
 
-    const year = Number(searchParams?.year ?? 2023)
+    const currentYear = new Date().getFullYear()
+    const year = Number(searchParams?.year ?? currentYear)
     const minPlayerCount = Number(searchParams?.minPlayerCount ?? 5)
 
     const stats = (await getGroupStats(year, minPlayerCount))?.reverse()
@@ -27,13 +28,29 @@ const Stats: FC<Props> = async ({ searchParams }) => {
     return (
         <div>
             <div>
-                <Link href="?year=2022" className="text-green-700 font-semibold underline mr-5">2022</Link>
-                <Link href="?year=2023" className="text-green-700 font-semibold underline mr-5">2023</Link>
+                <YearLinks fromYear={2022} toYear={currentYear} />
             </div>
             <h2 className="text-2xl font-semibold my-2">Stats {year}</h2>
             <StatsTable gameData={stats} />
         </div>
     )
 }
+
+const YearLinks: FC<{ fromYear: number, toYear: number }> = ({ fromYear, toYear }) => {
+    if (fromYear > toYear) {
+        return null
+    }
+
+    const yearLinks = []
+
+    for (let year = fromYear; year <= toYear; year++) {
+        yearLinks.push(
+            <Link href={`?year=${year}`} className="text-green-700 font-semibold underline mr-5">{year}</Link>
+        )
+    }
+
+    return yearLinks;
+}
+
 
 export default Stats
