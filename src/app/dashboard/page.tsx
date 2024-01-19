@@ -14,11 +14,14 @@ const Dashboard = async () => {
                     View group&apos;s competitions results.
                 </Card>
                 <Card header="Live now" href="/dashboard/live" image="/live.png">
-                    Who&apos;s playing online right one. Sry, no spying on random people, only
+                    Who&apos;s playing online right now. Sry, no spying on random people, only
                     friends&apos; games are listed.
                 </Card>
                 <Card header="Settings" href="/dashboard/settings" image="/settings.png">
                     Set settings, hammer nails and other stuff
+                </Card>
+                <Card header="My games" href="/dashboard/games" image="/games.png">
+                    My 10 latest games
                 </Card>
                 {admin && (
                     <Card header="Admin stuff" href="/dashboard/admin" image="/admin.png">

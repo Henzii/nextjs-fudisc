@@ -58,3 +58,36 @@ export const getGame = async (gameId: string) => {
   }
   `, { gameId })
 }
+
+type GetGamesResponse = {
+  games: Game[]
+}
+export const getGames = async (limit: number) => {
+  const response = await postWithToken<'getGames', GetGamesResponse>(`
+  query GetGames($limit: Int, $offset: Int) {
+    getGames(limit: $limit, offset: $offset) {
+      games {
+        id
+        course
+        par
+        layout
+        pars
+        startTime
+        scorecards {
+          user {
+            name
+          }
+          scores
+          total
+          plusminus
+          hc
+          hcPlusminus
+          beers
+        }
+      }
+    }
+  }
+  `, { limit, offset: 0 })
+  return response?.data.getGames.games
+
+}
