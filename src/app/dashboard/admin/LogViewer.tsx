@@ -10,7 +10,7 @@ const LogViewer = async () => {
         <section className="mt-8">
             <h2 className="text-2xl font-semibold">Captain&apos;s log</h2>
             {!logs && <p>Failed to fetch logs</p>}
-            <table width="100%" className="[>th]: text-left border-2" cellSpacing={1} cellPadding={2}>
+            <table className="[>th]: text-left border-2 w-full" cellSpacing={1} cellPadding={2}>
                 <thead>
                     <tr>
                         <th>Timestamp</th>
