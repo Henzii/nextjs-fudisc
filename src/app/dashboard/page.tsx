@@ -1,7 +1,5 @@
 import { isAdmin } from "@/common/utils";
 import Card from "@/components/Card"
-import { getUserInfo } from "@/services/user"
-import { AccountType } from "@/types/user";
 
 const Dashboard = async () => {
 

@@ -1,11 +1,8 @@
 "use server"
 
-import { getUserInfo, getUserToken } from "@/services/user"
-import { redirect } from "next/navigation"
-import { cookies } from "next/headers"
-import { COOKIES } from "@/types/enums"
-import jwt from 'jsonwebtoken'
-import { TokenPayload } from "@/types/user"
+import { getUserToken } from "@/services/user"
+import { loginWithToken } from "./utils"
+
 
 export const handleLogin = async (_prevState: any, formData: FormData) => {
     const user = formData.get('user')?.toString()
@@ -21,20 +18,6 @@ export const handleLogin = async (_prevState: any, formData: FormData) => {
         }
     }
 
-    const userInfo = await getUserInfo(token);
+    await loginWithToken(token)
 
-    const payload: TokenPayload = {
-        name: userInfo.name,
-        id: userInfo.id,
-        accountType: userInfo.accountType
-    }
-
-    const loginToken = jwt.sign(payload, process.env.TOKEN_KEY ?? '')
-
-    const cookieJar = cookies()
-
-    cookieJar.set(COOKIES.ServerToken, token)
-    cookieJar.set(COOKIES.LoginToken, loginToken)
-
-    redirect('/dashboard')
 }
