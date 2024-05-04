@@ -34,29 +34,38 @@ export const getLiveGames = async () => {
   return response.data.data?.getLiveGames ?? []
 }
 
-export const getGame = async (gameId: string) => {
-  return postWithToken<'getGame', Game>(`
-    query GetGame($gameId: ID!) {
-      getGame(gameId: $gameId) {
-        id
-        course
-        par
-        layout
-        pars
-        scorecards {
-          user {
-            name
+export const getLiveGame = async (gameId: string) => {
+  console.log(gameId)
+  try {
+    const response = await axios.post<QueryReponse<'getLiveGame', Game>>(config('fuDiscServerUri'), {
+      query: `
+      query GetLiveGame($gameId: ID!) {
+        getLiveGame(gameId: $gameId) {
+          id
+          course
+          par
+          layout
+          pars
+          startTime
+          scorecards {
+            user {
+              name
+            }
+            scores
+            total
+            plusminus
+            hc
+            hcPlusminus
+            beers
           }
-          scores
-          total
-          plusminus
-          hc
-          hcPlusminus
-          beers
         }
-    }
+      }`,
+      variables: { gameId: gameId }
+    })
+    return response.data;
+  } catch (e) {
+    return null;
   }
-  `, { gameId })
 }
 
 type GetGamesResponse = {

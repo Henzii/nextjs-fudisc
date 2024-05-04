@@ -1,3 +1,4 @@
+import WithToken from "@/components/RequiresAuth"
 import { getLiveGames } from "@/services/games"
 import { format, fromUnixTime } from "date-fns"
 import Link from "next/link"
@@ -7,7 +8,7 @@ const LivePage = async () => {
 
 
   return (
-    <div>
+    <WithToken>
       <h1 className="text-3xl font-bold mb-5">Now live</h1>
       <table className="w-full" cellPadding={4} cellSpacing={0}>
         <thead>
@@ -32,7 +33,7 @@ const LivePage = async () => {
           })}
         </tbody>
       </table>
-    </div>
+    </WithToken>
   )
 }
 
