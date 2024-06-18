@@ -34,7 +34,8 @@ const GameCard: FC<Props> = ({ game }) => {
                             return (
                                 <tr key={index} className="table-row">
                                     <td className="text-left w-36 capitalize">{scorecard.user.name}</td>
-                                    {scorecard.scores.map((score, index) => {
+                                    {game.pars.map((_par, index) => {
+                                        const score = scorecard.scores[index] ?? '-'
                                         const pmScore = score - game.pars[index]
                                         return (
                                             <td key={index} className={clsx("rounded-full w-6 h-6", {
