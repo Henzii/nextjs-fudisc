@@ -11,7 +11,7 @@ const Dashboard = async () => {
                 <Card header="Results" href="/dashboard/stats" image="/competition.png">
                     View group&apos;s competitions results.
                 </Card>
-                <Card header="Live now" href="/dashboard/live" image="/live.png">
+                <Card header="Live now" href="/dashboard/liveNow" image="/live.png">
                     Who&apos;s playing online right now. Sry, no spying on random people, only
                     friends&apos; games are listed.
                 </Card>

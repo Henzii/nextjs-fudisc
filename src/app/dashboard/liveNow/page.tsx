@@ -1,4 +1,3 @@
-import WithToken from "@/components/RequiresAuth"
 import { getLiveGames } from "@/services/games"
 import { format, fromUnixTime } from "date-fns"
 import Link from "next/link"
@@ -8,7 +7,7 @@ const LivePage = async () => {
 
 
   return (
-    <WithToken>
+    <section>
       <h1 className="text-3xl font-bold mb-5">Now live</h1>
       <table className="w-full" cellPadding={4} cellSpacing={0}>
         <thead>
@@ -22,7 +21,7 @@ const LivePage = async () => {
           {liveGames.map(game => {
             const startTime = format(fromUnixTime(game.startTime / 1000), 'dd.MM.yyyy hh:mm')
             return (
-              <Link key={game.id} href={`/dashboard/live/${game.id}`} legacyBehavior>
+              <Link key={game.id} href={`/live/${game.id}`} legacyBehavior>
                 <tr className="hover:shadow-lg hover:cursor-pointer rounded border-2">
                   <td>{startTime}</td>
                   <td>{game.course} / {game.layout}</td>
@@ -33,7 +32,7 @@ const LivePage = async () => {
           })}
         </tbody>
       </table>
-    </WithToken>
+    </section>
   )
 }
 
