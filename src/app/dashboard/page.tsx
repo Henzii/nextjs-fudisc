@@ -21,6 +21,9 @@ const Dashboard = async () => {
                 <Card header="My games" href="/dashboard/games" image="/games.png">
                     My 10 latest games
                 </Card>
+                <Card header="Export" href="/dashboard/export" image="/export.png">
+                    Export games to .csv file
+                </Card>
                 {admin && (
                     <Card header="Admin stuff" href="/dashboard/admin" image="/admin.png">
                         Admin stuff here
