@@ -59,7 +59,7 @@ export default function RootLayout({
               </Link>
             </div>
             <div>
-              <Link href="mailto:fudisc@henzi.fi" className='text-blue-400'>Contact us</Link>
+              <Link href="/feedback" className='text-blue-400'>Contact us</Link>
             </div>
           </div>
         </footer>
