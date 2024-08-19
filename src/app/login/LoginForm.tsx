@@ -6,7 +6,7 @@ import { useFormState } from 'react-dom'
 import FormSubmitButton from "@/components/FormSubmitButton";
 
 const LoginForm = () => {
-    const [state, formAction] = useFormState(handleLogin, {})
+    const [state, formAction] = useFormState(handleLogin, null)
     return (
         <section className="m-auto max-w-5xl mt-5 p-8">
             <fieldset>
