@@ -1,16 +1,16 @@
 import { Game, Scorecard } from "@/types/game";
 
-const getTotalIncludeingHC = (sc: Scorecard) =>
-    sc.total - sc.hc - sc.bHc
+const getTotalIncludeingHC = (sc: Scorecard, bHcMultiplier: number) =>
+    sc.total - sc.hc - sc.bHc * bHcMultiplier
 
-const getPlusMinusIncludingHC = (sc: Scorecard) =>
-    sc.plusminus - sc.hc - sc.bHc
+const getPlusMinusIncludingHC = (sc: Scorecard, bHcMultiplier: number) =>
+    sc.plusminus - sc.hc - sc.bHc * bHcMultiplier
 
-const rankScorecards = (scorecards: Scorecard[]) => {
+const rankScorecards = (scorecards: Scorecard[], bHcMultiplier: number) => {
     const ranks: number[] = []
     for (let i = 0; i < scorecards.length; i++) {
-        const score = getTotalIncludeingHC(scorecards[i])
-        if (i > 0 && getTotalIncludeingHC(scorecards[i - 1]) == score) {
+        const score = getTotalIncludeingHC(scorecards[i], bHcMultiplier)
+        if (i > 0 && getTotalIncludeingHC(scorecards[i - 1], bHcMultiplier) == score) {
             ranks.push(ranks[i - 1])
         } else ranks.push(i + 1)
     }
@@ -51,8 +51,8 @@ export const getResultForPlayer = (playerName: string, field: keyof Omit<MappedP
 export const parseGames = (games: Game[]): MappedGames => {
     const playerNames = getUniquePlayerNames(games)
     const competitions = games.map(game => {
-        const sortedScorecards = [...game.scorecards].sort((a, b) => getTotalIncludeingHC(a) - getTotalIncludeingHC(b))
-        const scorecardRanks = rankScorecards(sortedScorecards)
+        const sortedScorecards = [...game.scorecards].sort((a, b) => getTotalIncludeingHC(a, game.bHcMultiplier) - getTotalIncludeingHC(b, game.bHcMultiplier))
+        const scorecardRanks = rankScorecards(sortedScorecards, game.bHcMultiplier)
         const players = sortedScorecards.map((scorecard, index) => {
             return {
                 name: scorecard.user.name,
@@ -62,7 +62,7 @@ export const parseGames = (games: Game[]): MappedGames => {
                 rank: scorecardRanks[index],
                 points: Math.max(6 - scorecardRanks[index], 0),
                 beers: scorecard.beers,
-                hcPlusminus: getPlusMinusIncludingHC(scorecard),
+                hcPlusminus: getPlusMinusIncludingHC(scorecard, game.bHcMultiplier),
             }
         })
         return {

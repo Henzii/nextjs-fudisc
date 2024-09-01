@@ -33,7 +33,8 @@ export async function middleware(request: NextRequest) {
             const payload: TokenPayload = {
                 name: userInfo.name,
                 id: userInfo.id,
-                accountType: userInfo.accountType
+                accountType: userInfo.accountType,
+                groupName: userInfo.groupName
             }
 
             const loginToken = await new SignJWT(payload)

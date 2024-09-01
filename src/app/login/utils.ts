@@ -14,7 +14,8 @@ export const loginWithToken = async (token: string) => {
     const payload: TokenPayload = {
         name: userInfo.name,
         id: userInfo.id,
-        accountType: userInfo.accountType
+        accountType: userInfo.accountType,
+        groupName: userInfo.groupName
     }
 
     const loginToken = jwt.sign(payload, process.env.TOKEN_KEY ?? '')

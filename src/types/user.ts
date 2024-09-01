@@ -14,6 +14,7 @@ export type User = {
 export type SafeUser = {
     name: string,
     id: string,
+    groupName: string | undefined,
 }
 
 export type SearchUserResponse = {
@@ -21,4 +22,4 @@ export type SearchUserResponse = {
     users: SafeUser[]
 }
 
-export type TokenPayload = Pick<User, 'id' | 'name' | 'accountType'>
+export type TokenPayload = Pick<User, 'id' | 'name' | 'accountType' | 'groupName'>

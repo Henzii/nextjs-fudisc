@@ -20,4 +20,5 @@ export type Game = {
     pars: number[]
     par: number
     scorecards: Scorecard[]
+    bHcMultiplier: number
 }

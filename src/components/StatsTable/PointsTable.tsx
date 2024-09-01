@@ -29,32 +29,34 @@ const PointsTable: FC<Props> = ({ mappedGames }) => {
   }, [mappedGames])
 
   return (
-    <table className="text-left mt-8 text-sm w-full">
-      <thead>
-        <tr className="text-bold [&>th]:pr-4 [&>th]:px-2">
-          <th></th>
-          <th>Name</th>
-          <th>Points</th>
-          <th>Games</th>
-          <th>Wins</th>
-          <th>Win %</th>
-          <th title="Points per game">PPG</th>
-        </tr>
-      </thead>
-      <tbody className="[&>tr:nth-child(odd)]:bg-gray-100">
-        {points.map(([name, playerPoints], index) => (
-          <tr key={name} className="[&>td]:p-2">
-            <td className="w-12">{index + 1}</td>
-            <td className="flex-1 lg:min-w-[10rem] ">{name}</td>
-            <td>{playerPoints.totalPoints}</td>
-            <td>{playerPoints.games}</td>
-            <td>{playerPoints.wins}</td>
-            <td>{(playerPoints.wins / playerPoints.games * 100).toFixed(2)}%</td>
-            <td>{(playerPoints.totalPoints / playerPoints.games).toFixed(2)}</td>
+    <div className="overflow-x-auto">
+      <table className="text-left mt-8 text-sm w-full">
+        <thead>
+          <tr className="text-bold [&>th]:pr-4 [&>th]:px-2">
+            <th></th>
+            <th>Name</th>
+            <th>Points</th>
+            <th>Games</th>
+            <th>Wins</th>
+            <th>Win %</th>
+            <th title="Points per game">PPG</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody className="[&>tr:nth-child(odd)]:bg-gray-100">
+          {points.map(([name, playerPoints], index) => (
+            <tr key={name} className="[&>td]:p-2">
+              <td className="w-12">{index + 1}</td>
+              <td className="flex-1 lg:min-w-[10rem] ">{name}</td>
+              <td>{playerPoints.totalPoints}</td>
+              <td>{playerPoints.games}</td>
+              <td>{playerPoints.wins}</td>
+              <td>{(playerPoints.wins / playerPoints.games * 100).toFixed(2)}%</td>
+              <td>{(playerPoints.totalPoints / playerPoints.games).toFixed(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
