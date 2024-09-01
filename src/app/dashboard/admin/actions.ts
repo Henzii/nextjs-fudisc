@@ -1,9 +1,9 @@
 import { searchUser } from "@/services/user";
 import { ActionState } from "@/types/actions"
-import { User } from "@/types/user";
+import { SafeUser } from "@/types/user";
 
 export type SearchUserActionState = ActionState<{
-    users: Pick<User, 'id' | 'name'>[]
+    users: SafeUser[]
     hasMore: boolean
 }>
 
