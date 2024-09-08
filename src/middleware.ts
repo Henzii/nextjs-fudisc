@@ -17,6 +17,7 @@ export async function middleware(request: NextRequest) {
                     query: `query GetMe {
                     getMe {
                     accountType
+                    groupName
                     name
                     id
                     }
