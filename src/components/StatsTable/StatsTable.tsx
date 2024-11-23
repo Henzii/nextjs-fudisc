@@ -42,6 +42,7 @@ const StatsTable: FC<Props> = ({ gameData }) => {
         <table className="text-sm w-full">
           <thead>
             <tr className="[&>th]:px-3 text-bold">
+              <th className="text-left">#</th>
               <th className="text-left">Date</th>
               <th className="text-left">Course</th>
               {parsedGames.playerNames.map(name => (
@@ -52,10 +53,11 @@ const StatsTable: FC<Props> = ({ gameData }) => {
             </tr>
           </thead>
           <tbody className="[&>tr:nth-child(odd)]:bg-slate-100 text-gray-600">
-            {parsedGames.competitions.map(game => {
+            {parsedGames.competitions.map((game, index) => {
               const date = fromUnixTime(game.startTime / 1000)
               return (
                 <tr key={game.id} className="[&>td]:p-1">
+                  <td>{index + 1}.</td>
                   <td className="whitespace-nowrap">{format(date, 'dd.MM.yy HH:mm')}</td>
                   <td>{game.course}</td>
                   {names.map(player => {
