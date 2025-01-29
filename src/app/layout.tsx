@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 
 import dotenv from 'dotenv'
 import Link from 'next/link'
+import { format } from 'date-fns'
 dotenv.config()
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ export default function RootLayout({
         </main>
         <footer className="bg-slate-900 text-white p-10 flex items-baseline align-middle mt-auto">
           <div className="m-auto">
-            (C) 2023 Henzisoft
+            (C) {format(Date.now(), 'yyyy')} Henzisoft
           </div>
           <div className="m-auto">
             <div>
