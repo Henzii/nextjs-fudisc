@@ -16,7 +16,7 @@ type Props = {
 const Switch = ({ onSwitchClicked, options, selected }: Props) => {
 
   return (
-    <div className="overflow-x-auto whitespace-nowrap">
+    <div className="whitespace-nowrap">
       {options.map((option, index) => {
         return (
           <button

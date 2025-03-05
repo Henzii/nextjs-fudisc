@@ -32,7 +32,7 @@ const PointsTable: FC<Props> = ({ mappedGames }) => {
     <div className="overflow-x-auto">
       <table className="text-left mt-8 text-sm w-full">
         <thead>
-          <tr className="text-bold [&>th]:pr-4 [&>th]:px-2">
+          <tr className="text-bold [&>th]:pr-4 [&>th]:px-2 [&>th]:whitespace-nowrap">
             <th></th>
             <th>Name</th>
             <th>Points</th>
