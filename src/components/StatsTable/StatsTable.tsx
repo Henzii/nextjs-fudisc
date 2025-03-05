@@ -23,6 +23,10 @@ const displayOptions: Options[] = [
 
 ]
 
+const beerOptions = [
+  { label: 'Prohibition', value: 'noBeers' },
+]
+
 type Props = {
   gameData: Game[]
 }
@@ -30,13 +34,15 @@ type Props = {
 const StatsTable: FC<Props> = ({ gameData }) => {
   const names = getUniquePlayerNames(gameData)
   const [showResultType, setShowResultType] = useState<Options['value']>('total')
+  const [prohibition, setProhibition] = useState<boolean>(false)
 
-  const parsedGames = useMemo(() => parseGames(gameData), [gameData])
+  const parsedGames = useMemo(() => parseGames(gameData, prohibition), [gameData, prohibition])
 
   return (
     <div className="relative">
-      <div className="py-2 mb-2 px-1 sticky top-0 left-0 bg-white">
+      <div className="py-2 mb-2 px-1 sticky top-0 left-0 bg-white flex gap-4">
         <Switch options={displayOptions} selected={showResultType} onSwitchClicked={setShowResultType} />
+        <Switch options={beerOptions} selected={prohibition ? 'noBeers' : undefined} onSwitchClicked={() => setProhibition(!prohibition)} />
       </div>
       <div className="overflow-x-scroll w-auto">
         <table className="text-sm w-full">
