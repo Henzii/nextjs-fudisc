@@ -40,7 +40,7 @@ const StatsTable: FC<Props> = ({ gameData }) => {
 
   return (
     <div className="relative">
-      <div className="py-2 mb-2 px-1 sticky top-0 left-0 bg-white flex gap-4">
+      <div className="py-2 mb-2 px-1 sticky top-0 left-0 bg-white flex gap-4 overflow-x-scroll">
         <Switch options={displayOptions} selected={showResultType} onSwitchClicked={setShowResultType} />
         <Switch options={beerOptions} selected={prohibition ? 'noBeers' : undefined} onSwitchClicked={() => setProhibition(!prohibition)} />
       </div>
@@ -51,6 +51,7 @@ const StatsTable: FC<Props> = ({ gameData }) => {
               <th className="text-left">#</th>
               <th className="text-left">Date</th>
               <th className="text-left">Course</th>
+              {!prohibition && <th>bHCx</th>}
               {parsedGames.playerNames.map(name => (
                 <th key={name} className="px-3">
                   {name}
@@ -66,6 +67,7 @@ const StatsTable: FC<Props> = ({ gameData }) => {
                   <td>{index + 1}.</td>
                   <td className="whitespace-nowrap">{format(date, 'dd.MM.yy HH:mm')}</td>
                   <td>{game.course}</td>
+                  {!prohibition && <th>{game.bHcMultiplier > 1 ? game.bHcMultiplier : ''}</th>}
                   {names.map(player => {
                     const cellValue = getResultForPlayer(player, showResultType, game.players)
                     const rank = getResultForPlayer(player, 'rank', game.players)

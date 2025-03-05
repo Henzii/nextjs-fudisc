@@ -1,5 +1,6 @@
 import StatsTable from "@/components/StatsTable/StatsTable"
 import { getGroupStats } from "@/services/stats"
+import clsx from "clsx"
 import Link from "next/link"
 import { FC } from "react"
 
@@ -24,18 +25,26 @@ const Stats: FC<Props> = async ({ searchParams }) => {
     return (
         <div>
             <h2 className="text-2xl font-semibold my-2">Stats</h2>
-            <YearSelector />
+            <YearSelector selectedYear={year} />
             <StatsTable gameData={stats} />
         </div>
     )
 }
 
-const YearSelector: FC = () => {
+const YearSelector: FC<{ selectedYear: string }> = ({ selectedYear }) => {
     const thisYear = new Date().getFullYear()
-    const years = Array.from({ length: thisYear - STARTING_YEAR + 1 }, (_, index) => STARTING_YEAR + index)
+    const years = Array.from({ length: thisYear - STARTING_YEAR + 1 }, (_, index) => (STARTING_YEAR + index).toString())
     return (
         <div className="flex gap-3">
-            {years.map(year => <Link className="text-blue-700" href={`?year=${year}`} key={year}>{year}</Link>)}
+            {years.map(year => (
+                <Link
+                    className={clsx(
+                        "text-blue-700 text-lg",
+                        year === selectedYear && 'text-blue-500 font-bold'
+                    )}
+                    href={`?year=${year}`} key={year}>{year}
+                </Link>
+            ))}
         </div>
     )
 }

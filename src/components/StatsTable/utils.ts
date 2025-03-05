@@ -42,6 +42,7 @@ export type MappedGames = {
         course: string,
         id: string,
         players: MappedPlayer[]
+        bHcMultiplier: number
     }[]
 }
 
@@ -69,7 +70,8 @@ export const parseGames = (games: Game[], prohibition: boolean): MappedGames => 
             id: game.id,
             startTime: game.startTime,
             course: game.course,
-            players
+            bHcMultiplier: game.bHcMultiplier,
+            players,
         }
     })
 
