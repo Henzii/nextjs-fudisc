@@ -16,6 +16,14 @@ export default function Home() {
         of features at absolutely no cost, empowering you to take your disc golf game
         to new heights.
       </ArticleBlock>
+      <ArticleBlock header="FuDisc Now on Wear OS!" image="/wearos.jpg" imageRight isPhoneImage={false} imageScale={0.5}>
+        Get ready to take your disc golf game to the next level with FuDisc on Wear
+        OS - now you can keep track of your scores without ever having to fumble for your phone! That&apos;s right,
+        the only thing you&apos;ll be juggling on the course are your discs. With FuDisc on your wrist, you can easily
+        track your game, check stats, and look like a total pro without breaking your stride. It&apos;s like having a caddy,
+        but without the awkward small talk. So go ahead, leave your phone in your bag, and keep your focus on throwing perfect
+        shots - your wrist is all you need!
+      </ArticleBlock>
       <ArticleBlock header="Real-Time Multi-User Scorekeeping" image="/screenshot_frame_scorecard.png">
         Elevate the disc golf experience with FuDisc&apos;s real-time multi-user
         scorekeeping functionality. Engage in collaborative play by inviting

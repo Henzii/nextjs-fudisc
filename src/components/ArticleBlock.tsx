@@ -11,18 +11,20 @@ type Props = {
     image?: string
     imageRight?: boolean
     isPhoneImage?: boolean
+    imageScale?: number
 }
 
-const ArticleBlock: FC<Props> = ({ header, children, className, image, smallText, variant = 'white', imageRight, isPhoneImage = true }) => {
+const ArticleBlock: FC<Props> = ({ header, children, className, image, smallText, variant = 'white', imageRight, isPhoneImage = true, imageScale = 1 }) => {
     return (
         <article className={clsx('p-5 py-36 flex content-center text-left relative', className, {
             ['bg-slate-900 text-white']: variant === 'black',
             ['text-black']: variant === 'white'
         })}>
             <div className={clsx("max-w-7xl m-auto flex flex-col lg:flex-row lg:gap-20", { ['lg:flex-row-reverse']: imageRight })}>
-                {image && <Image src={image} width={600} height={600} alt="Image about something!" className={clsx({
-                    ["rounded-3xl m-auto w-52 lg:w-64 shadow-black shadow-2xl"]: isPhoneImage,
-                    ["m-auto w-fit"]: !isPhoneImage
+                {image && <Image src={image} width={600 * imageScale} height={600 * imageScale} alt="Image about something!" className={clsx(
+                    "rounded-3xl", {
+                    ["m - auto w - 52 lg: w - 64 shadow- black shadow - 2xl"]: isPhoneImage,
+                    ["m-auto w-fit"]: !isPhoneImage,
                 }
                 )}
                 />}
