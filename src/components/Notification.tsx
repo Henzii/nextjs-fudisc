@@ -1,14 +1,14 @@
 import clsx from "clsx";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type Props = {
     variant: 'error' | 'success'
-    message: string
+    message: ReactNode
 }
 
 const Notification: FC<Props> = ({ variant, message }) => {
     return (
-        <div className="absolute top-0 right-5">
+        <div className="sticky top-0">
             <div
                 className={clsx("p-3 my-2 rounded-lg shadow-lg text-lg", {
                     ['bg-red-500 text-white']: variant === "error",

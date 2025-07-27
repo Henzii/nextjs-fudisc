@@ -11,6 +11,8 @@ export type User = {
     accountType: AccountType
 }
 
+export type InactiveUser = Pick<User, 'id' | 'name'> & { createdAt: string }
+
 export type SafeUser = {
     name: string,
     id: string,
