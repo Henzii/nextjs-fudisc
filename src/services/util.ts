@@ -4,7 +4,9 @@ import { QueryReponse } from "@/types/query"
 import axios from "axios"
 import { cookies } from "next/headers"
 
-export const postWithToken = async <QueryName extends string, QueryReturn>(query: string, variables?: Record<string, number | string | undefined>) => {
+type Variables = Record<string, number | string | undefined | string[]>
+
+export const postWithToken = async <QueryName extends string, QueryReturn>(query: string, variables?: Variables) => {
     const token = cookies().get(COOKIES.ServerToken)?.value
     if (!token) return null
 

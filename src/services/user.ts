@@ -1,7 +1,7 @@
 import { COOKIES } from "@/types/enums"
 import axios from "axios"
 import { cookies } from "next/headers"
-import { SearchUserResponse, User } from "@/types/user"
+import { InactiveUser, SearchUserResponse, User } from "@/types/user"
 import { QueryReponse } from "@/types/query"
 import config from "@/config/config"
 import { postWithToken } from "./util"
@@ -121,4 +121,28 @@ export const updateSettings = async ({ userId, email, groupName, password }: Upd
     } catch (e) {
         return null
     }
+}
+
+export const getInactiveUsers = async (createdBefore: string) => {
+    const response = await postWithToken<'getUsersWithoutGames', InactiveUser[]>(`
+        query GetInactiveUsers($createdBefore: String!) {
+            getUsersWithoutGames(createdBefore: $createdBefore) {
+                id
+                name
+                createdAt
+            }
+        }
+        `, { createdBefore })
+
+    return response?.data.getUsersWithoutGames ?? []
+}
+
+export const deleteInactiveUsers = async (userIds: string[]) => {
+    const response = await postWithToken<'deleteAccount', boolean>(`
+        mutation DeleteInactiveUsers($userIds: [ID!]!) {
+            deleteAccounts(userIds: $userIds)
+        }
+        `, { userIds })
+
+    return response?.data.deleteAccount ?? false
 }
