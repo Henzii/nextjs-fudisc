@@ -4,6 +4,7 @@ import { Game } from "@/types/game";
 import { postWithToken } from "./util";
 import jwt from 'jsonwebtoken'
 import { SafeUser } from "@/types/user";
+import { isBefore } from "date-fns";
 
 type Response = {
   games: Game[],
@@ -36,6 +37,7 @@ export const getGroupStats = async (year: string) => {
                 id
                 name
                 groupName
+                groupJoinedDate
               }
             }
             startTime
@@ -52,7 +54,14 @@ export const getGroupStats = async (year: string) => {
     const games = response?.data.getGames.games ?? []
     const mappedGames = games.map(game => ({
       ...game,
-      scorecards: game.scorecards.filter(sc => sc.user.groupName === user.groupName)
+      scorecards: game.scorecards.filter(sc => {
+        if (sc.user.groupName !== user.groupName) return false;
+
+        const hasJoinedBeforeGame = !sc.user.groupJoinedDate || isBefore(new Date(Number(sc.user.groupJoinedDate)), new Date(Number(game.startTime)))
+
+        return hasJoinedBeforeGame;
+      }
+      )
     }))
 
     return mappedGames

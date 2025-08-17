@@ -91,6 +91,7 @@ export const getUser = async (userId: string) => {
                 name
                 id
                 groupName
+                groupJoinedDate
                 email
             }
         }
