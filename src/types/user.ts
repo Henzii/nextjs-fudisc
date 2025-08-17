@@ -8,6 +8,7 @@ export type User = {
     name: string
     email?: string
     groupName?: string
+    groupJoinedDate?: string
     accountType: AccountType
 }
 
@@ -17,6 +18,7 @@ export type SafeUser = {
     name: string,
     id: string,
     groupName: string | undefined,
+    groupJoinedDate: string | undefined,
 }
 
 export type SearchUserResponse = {
