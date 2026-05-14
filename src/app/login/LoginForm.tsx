@@ -4,6 +4,7 @@ import { Input } from "@/components/Input"
 import { handleLogin } from "./actions";
 import { useFormState } from 'react-dom'
 import FormSubmitButton from "@/components/FormSubmitButton";
+import Link from "next/link";
 
 const LoginForm = () => {
     const [state, formAction] = useFormState(handleLogin, null)
@@ -24,6 +25,11 @@ const LoginForm = () => {
                     </div>
                     <div className="mt-5">
                         <FormSubmitButton>Login</FormSubmitButton>
+                    </div>
+                    <div className="mt-3 text-sm">
+                        <Link href="/restore" className="text-emerald-700 underline hover:text-emerald-900">
+                            Forgot your password?
+                        </Link>
                     </div>
                 </form>
             </fieldset>
