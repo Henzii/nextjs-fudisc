@@ -13,18 +13,22 @@ const RestoreForm = () => {
                     Something went wrong. Please try again.
                 </div>
             )}
-            {state?.success && (
+            {state?.success ? (
                 <div className="bg-green-500 text-white p-3 my-2 rounded-lg shadow-lg text-lg">
-                    Check your email for further instructions.
+                    If an account with that email exists, a restore link has been sent. Please check your inbox.
                 </div>
+            ) : (
+                <>
+                    <div className="flex flex-col max-w-sm mt-2">
+                        <label htmlFor="email">Email</label>
+                        <Input type="email" id="email" name="email" required />
+                    </div>
+                    <div className="mt-5">
+                        <FormSubmitButton>Restore account</FormSubmitButton>
+                    </div>
+                </>
+
             )}
-            <div className="flex flex-col max-w-sm mt-2">
-                <label htmlFor="email">Email</label>
-                <Input type="email" id="email" name="email" required />
-            </div>
-            <div className="mt-5">
-                <FormSubmitButton>Restore account</FormSubmitButton>
-            </div>
         </form>
     )
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import RestoreForm from './RestoreForm'
 
 const Page = () => {
@@ -9,6 +10,10 @@ const Page = () => {
                 Note: this only works if you provided an email when you signed up.
             </p>
             <RestoreForm />
+            <p className="text-gray-600 mb-6 max-w-sm mt-6">
+                If you are having trouble restoring your account, please contact us through the <Link href="/feedback" className="text-blue-500 underline">feedback form</Link>
+            </p>
+
         </section>
     )
 }
