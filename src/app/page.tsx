@@ -10,6 +10,15 @@ export default function Home() {
       imageRight: false,
       isPhone: true,
       addedAt: "2026-04-15T00:00:00.000Z",
+      icon: null,
+    },
+    {
+      title: "RagePutt Minigame",
+      description: "Test your putting skills in the RagePutt minigame by sinking putts from different distances. Your score is based on how many putts you make at each distance, and your putting position in each round is determined by how many putts went in during the previous round. Play a full 20-round game or choose a quick game with 10 rounds.",
+      image: "/screenshot_frame_rageputt.png",
+      imageRight: true,
+      isPhone: true,
+      icon: "/rageputt-icon.png",
     },
     {
       title: "Hole Maps Upload",
@@ -18,6 +27,7 @@ export default function Home() {
       imageRight: false,
       isPhone: true,
       addedAt: "2026-04-15T00:00:00.000Z",
+      icon: null,
     },
     {
       title: "Real-Time Multi-User Scorekeeping",
@@ -25,6 +35,7 @@ export default function Home() {
       image: "/screenshot_frame_scorecard.png",
       imageRight: false,
       isPhone: true,
+      icon: null,
     },
     {
       title: "Unleash Your Potential with Handicap Score Calculations",
@@ -32,6 +43,7 @@ export default function Home() {
       image: "/screenshot_frame_summary.png",
       imageRight: true,
       isPhone: true,
+      icon: null,
     },
     {
       title: "Raise a Toast with the Beer Handicap Feature",
@@ -39,6 +51,7 @@ export default function Home() {
       image: "/screenshot_frame_beer.png",
       imageRight: false,
       isPhone: true,
+      icon: null,
     },
     {
       title: "Elevating Disc Golf with Competitive Group Play",
@@ -46,6 +59,7 @@ export default function Home() {
       image: "/competition_list.png",
       imageRight: true,
       isPhone: false,
+      icon: null,
     },
   ];
 
@@ -164,9 +178,19 @@ export default function Home() {
                 <div className={`grid gap-12 items-center ${feature.image ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1"} ${feature.imageRight ? "md:grid-cols-2" : ""}`}>
                   <div className={feature.imageRight && feature.image ? "order-2 md:order-2" : "order-1"}>
                     <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-3xl md:text-4xl font-bold text-white">
-                        {feature.title}
-                      </h3>
+                      <div className="flex items-center gap-3">
+                        {feature.icon && (
+                          <img
+                            src={feature.icon}
+                            alt=""
+                            aria-hidden="true"
+                            className="h-12 w-12 rounded-xl"
+                          />
+                        )}
+                        <h3 className="text-3xl md:text-4xl font-bold text-white">
+                          {feature.title}
+                        </h3>
+                      </div>
                       {feature.addedAt && Date.now() - new Date(feature.addedAt).getTime() < 1000 * 60 * 60 * 24 * 60 && (
                         <span className="rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-950">
                           New feature
