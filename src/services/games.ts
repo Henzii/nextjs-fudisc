@@ -71,6 +71,77 @@ export const getLiveGame = async (gameId: string) => {
 type GetGamesResponse = {
   games: Game[]
 }
+
+export const getGame = async (gameId: string) => {
+  const response = await postWithToken<'getGame', Game | null>(`
+    query GetGame($gameId: ID!) {
+      getGame(gameId: $gameId) {
+        id
+        course
+        par
+        layout
+        pars
+        startTime
+        scorecards {
+          user {
+            name
+          }
+          scores
+          total
+          plusminus
+        }
+      }
+    }
+  `, { gameId })
+
+  if (!response) return null
+  if (response.errors?.length) {
+    throw new Error(response.errors.map(error => error.message).join(", "))
+  }
+
+  return response.data.getGame
+}
+
+type GetAllGamesResponse = {
+  games: Pick<Game, 'id' | 'course' | 'layout' | 'scorecards' | 'startTime'>[]
+  hasMore: boolean
+  nextOffset: number | null
+}
+
+export const getAllGames = async (limit: number, offset: number) => {
+  const response = await postWithToken<'getAllGames', GetAllGamesResponse>(`
+    query GetAllGames($limit: Int!, $offset: Int!) {
+      getAllGames(limit: $limit, offset: $offset) {
+        games {
+          id
+          course
+          layout
+          startTime
+          scorecards {
+            user {
+              name
+            }
+          }
+        }
+        hasMore
+        nextOffset
+      }
+    }
+  `, { limit, offset })
+
+  if (!response) return null
+  if (response.errors?.length) {
+    throw new Error(response.errors.map(error => error.message).join(", "))
+  }
+
+  const page = response.data.getAllGames
+  if (page.hasMore && (page.nextOffset === null || page.nextOffset <= offset)) {
+    throw new Error("getAllGames returned an invalid nextOffset")
+  }
+
+  return page
+}
+
 export const getGames = async (limit: number) => {
   const response = await postWithToken<'getGames', GetGamesResponse>(`
   query GetGames($limit: Int, $offset: Int) {

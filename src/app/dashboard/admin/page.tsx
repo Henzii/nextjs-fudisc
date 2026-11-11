@@ -12,8 +12,10 @@ const Page = () => {
             <Link href="/dashboard/admin/inactive" className="text-blue-500 hover:underline mb-6">
                 View Inactive Users
             </Link>
-            <h2 className="text-2xl font-bold my-6">Logs</h2>
-            <Link href="/dashboard/admin/logs" className="text-blue-500 hover:underline mb-6">View Logs</Link >
+            <h2 className="text-2xl font-bold my-6">Spy Games</h2>
+            <Link href="/dashboard/admin/spy-games" className="text-blue-500 hover:underline mb-6">
+                View Spy Games
+            </Link>
         </>
     )
 }
