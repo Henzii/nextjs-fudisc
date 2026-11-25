@@ -16,6 +16,10 @@ const Page = () => {
             <Link href="/dashboard/admin/spy-games" className="text-blue-500 hover:underline mb-6">
                 View Spy Games
             </Link>
+            <h2 className="text-2xl font-bold my-6">Logs v2</h2>
+            <Link href="/dashboard/admin/grafana" className="text-blue-500 hover:underline mb-6">
+                View Grafana Dashboard
+            </Link>
         </>
     )
 }
